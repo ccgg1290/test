@@ -1,0 +1,4 @@
+
+ con este comando se pasan los diferentes valores para las diferntes variables de entrorno que especificamos en el serenity.conf
+ En este caso estamos pasando el parametro para el ambiente y el nvegador
+ mvn -D clean verify -D environment=firefox,dev
