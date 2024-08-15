@@ -5,7 +5,8 @@ node('master') {
 def EjecucionCasosFallidos(){
     
     stage("Run project "){
-        echo "comando ejecutado"
+	echo "corriendo prueba normal"    
+        bat "mvn  clean verify"
     }
     
 	for (int i = 0; i <  params.Ejecucion_casos_fallidos.toInteger(); i++) {
@@ -13,11 +14,12 @@ def EjecucionCasosFallidos(){
 			stage("Ejecucion casos fallidos ${i+1}"){
 			   
 				//	bat "curl --connect-timeout 15 -v -L ${list[i]}"
-				 echo ' I only execute on the master branch'
+				 echo '${i+1}  ehecutandose '
+				 bat "mvn  clean verify"
 			   
 			} 
 		} catch (Exception e) {
-			echo "Stage failed, but we continue"  
+			echo "fallo el script, no se hizo la ejecucion n: '${i+1} "  
 		}
 	}
 }
