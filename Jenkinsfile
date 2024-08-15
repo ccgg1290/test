@@ -6,7 +6,7 @@ def EjecucionCasosFallidos(){
     
     stage("Run project "){
 	echo "corriendo prueba normal"    
-        bat "mvn  clean verify"
+        bat "mvn  clean verify -Denvironment=funcional "
     }
     
 	for (int i = 0; i <  params.Ejecucion_casos_fallidos.toInteger(); i++) {
